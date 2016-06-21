@@ -1,0 +1,21 @@
+postgis:
+    container_name:  postgis
+#    build: ./postgis
+#    build: ./postgis.ray
+    build: ./postgis.fdw
+#    image:  mdillon/postgis
+    hostname: postgis
+    environment: 
+        - POSTGRES_PASSWORD="hello123"    
+        - POSTGRES_USER="postgres"    
+        - POSTGRES_DB="postgres"    
+    expose:
+        - "5432"
+    ports:
+        - "5432:5432"    
+    volumes:
+        - ${POSTGRES_HOME}/config/postgres/var.lib/data:/var/lib/postgresql/data
+        
+
+
+
